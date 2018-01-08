@@ -5,7 +5,6 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
-using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.UI;
 using Microsoft.AspNet.Identity;
@@ -36,6 +35,7 @@ namespace WebApiIdentity2.Controllers
         }
         
         // GET: /Account/Register
+        [HttpGet]
         [System.Web.Http.AllowAnonymous]
         public ActionResult RegisterUser()
         {
@@ -44,8 +44,8 @@ namespace WebApiIdentity2.Controllers
 
         // POST api/Account/Register
         [System.Web.Http.AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        [System.Web.Http.Route("RegisterUser")]
+        //[ValidateAntiForgeryToken]
+        [HttpPost]
         public async Task<ActionResult> RegisterUser(RegisterViewModel model)
         {
             //if (!System.Web.Http.ModelBinding.ModelState.IsValid)
